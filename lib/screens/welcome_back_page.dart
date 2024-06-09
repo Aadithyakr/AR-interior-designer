@@ -8,11 +8,10 @@ class WelcomeBackPage extends StatefulWidget {
   const WelcomeBackPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _WelcomeBackPageState createState() => _WelcomeBackPageState();
+  WelcomeBackPageState createState() => WelcomeBackPageState();
 }
 
-class _WelcomeBackPageState extends State<WelcomeBackPage> {
+class WelcomeBackPageState extends State<WelcomeBackPage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -148,10 +147,10 @@ class LoginFields extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    Color(0xFFffffff).withOpacity(0.1),
-                    Color(0xFFFFFFFF).withOpacity(0.05),
+                    const Color(0xFFffffff).withOpacity(0.1),
+                    const Color(0xFFFFFFFF).withOpacity(0.05),
                   ],
-                  stops: [
+                  stops: const [
                     0.1,
                     1,
                   ]),
@@ -159,8 +158,8 @@ class LoginFields extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color(0xFFffffff).withOpacity(0.5),
-                  Color((0xFFFFFFFF)).withOpacity(0.5),
+                  const Color(0xFFffffff).withOpacity(0.5),
+                  const Color((0xFFFFFFFF)).withOpacity(0.5),
                 ],
               ),
               child: TextFormField(
@@ -273,12 +272,12 @@ class SignUp extends StatelessWidget {
   const SignUp({super.key});
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+    return const Padding(
+      padding: EdgeInsets.only(bottom: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Text(
+          Text(
             'New here?  ',
             style: TextStyle(
               fontStyle: FontStyle.italic,
@@ -288,7 +287,7 @@ class SignUp extends StatelessWidget {
           ),
           InkWell(
             // onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Sign_in(),));},
-            child: const Text(
+            child: Text(
               'Sign Up',
               style: TextStyle(
                 color: Colors.amberAccent,
