@@ -1,9 +1,13 @@
 import 'package:pro_s6/app_properties.dart';
-//import 'package:pro_s6/screens/auth/welcome_back_page.dart';
+
 import 'package:flutter/material.dart';
+import 'package:pro_s6/screens/welcome_back_page.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _SplashScreenState createState() => _SplashScreenState();
 }
 
@@ -21,9 +25,9 @@ class _SplashScreenState extends State<SplashScreen>
       ..addListener(() {
         setState(() {});
       });
-    /*controller.forward().then((_) {
+    controller.forward().then((_) {
       navigationPage();
-    });*/
+    });
   }
 
   @override
@@ -32,10 +36,10 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
-  /*void navigationPage() {
-    Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (_) => WelcomeBackPage()));
-  }*/
+  void navigationPage() {
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const WelcomeBackPage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
       child: Scaffold(
         body: Container(
           decoration: const BoxDecoration(
-              gradient:
-                  LinearGradient(colors: [yellow, mediumYellow, darkYellow])),
+              gradient: LinearGradient(colors: [blue, mediumBlue, darkBlue])),
           child: Column(
             children: <Widget>[
               Expanded(
