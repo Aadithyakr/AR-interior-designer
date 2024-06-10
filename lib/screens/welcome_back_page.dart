@@ -1,8 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pro_s6/screens/sign_up.dart';
 
 class WelcomeBackPage extends StatefulWidget {
   const WelcomeBackPage({super.key});
@@ -15,7 +15,7 @@ class WelcomeBackPageState extends State<WelcomeBackPage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      resizeToAvoidBottomInset: false, // Add this
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: <Widget>[
           BackgroundImage(),
@@ -73,7 +73,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             height: 200,
           ),
-          SignUp(),
+          SignUpButton(),
           SizedBox(
             height: 20,
           ),
@@ -126,8 +126,15 @@ class SubTitle extends StatelessWidget {
   }
 }
 
-class LoginFields extends StatelessWidget {
+class LoginFields extends StatefulWidget {
   const LoginFields({super.key});
+
+  @override
+  State<LoginFields> createState() => _LoginFieldsState();
+}
+
+class _LoginFieldsState extends State<LoginFields> {
+  bool obscureText1 = true;
 
   @override
   Widget build(BuildContext context) {
@@ -205,11 +212,22 @@ class LoginFields extends StatelessWidget {
               ),
               child: TextFormField(
                 style: const TextStyle(fontSize: 16.0, color: Colors.white),
-                obscureText: true,
+                obscureText: obscureText1,
                 decoration: InputDecoration(
                   prefixIcon: const Icon(
                     Icons.password,
                     color: Colors.blueAccent,
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        obscureText1 = !obscureText1;
+                      });
+                    },
+                    icon: Icon(
+                      obscureText1 ? Icons.visibility : Icons.visibility_off,
+                      color: Colors.blue,
+                    ),
                   ),
                   labelText: 'Password',
                   labelStyle: GoogleFonts.pacifico(color: Colors.white),
@@ -268,16 +286,16 @@ class ForgotPassword extends StatelessWidget {
   }
 }
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+class SignUpButton extends StatelessWidget {
+  const SignUpButton({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(bottom: 20),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(
+          const Text(
             'New here?  ',
             style: TextStyle(
               fontStyle: FontStyle.italic,
@@ -286,8 +304,14 @@ class SignUp extends StatelessWidget {
             ),
           ),
           InkWell(
-            // onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Sign_in(),));},
-            child: Text(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SignUpView(),
+                ),
+              );
+            },
+            child: const Text(
               'Sign Up',
               style: TextStyle(
                 color: Colors.amberAccent,
