@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pro_s6/screens/componenets/alternate_auth_bar.dart';
+import 'package:pro_s6/screens/componenets/background_image.dart';
 import 'package:pro_s6/screens/profile_page_view.dart';
 import 'package:pro_s6/screens/sign_up.dart';
 
@@ -15,34 +17,17 @@ class WelcomeBackPage extends StatefulWidget {
 class WelcomeBackPageState extends State<WelcomeBackPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Stack(
-        children: <Widget>[
-          BackgroundImage(),
-          LoginForm(),
-        ],
-      ),
-    );
-  }
-}
-
-class BackgroundImage extends StatelessWidget {
-  const BackgroundImage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/welcome.png'),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-        child: Container(
-          decoration: BoxDecoration(color: Colors.white.withOpacity(0.0)),
+    final Size size = MediaQuery.of(context).size;
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Stack(
+          children: <Widget>[
+            const BackgroundImage(),
+            LoginForm(
+              size: size,
+            ),
+          ],
         ),
       ),
     );
@@ -50,34 +35,29 @@ class BackgroundImage extends StatelessWidget {
 }
 
 class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+  const LoginForm({
+    super.key,
+    required this.size,
+  });
+  final Size size;
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 28.0),
-      child: Column(
+    return Container(
+      height: size.height,
+      width: size.width,
+      padding: const EdgeInsets.all(10),
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(
-            height: 150,
-          ),
-          WelcomeBackTitle(),
-          SizedBox(
-            height: 90,
+          Expanded(
+            child: Align(
+                alignment: Alignment.centerLeft, child: WelcomeBackTitle()),
           ),
           SubTitle(),
-          SizedBox(
-            height: 20,
-          ),
           LoginFields(),
-          SizedBox(
-            height: 200,
-          ),
+          Expanded(child: AlternateAuth()),
           SignUpButton(),
-          SizedBox(
-            height: 20,
-          ),
           ForgotPassword(),
         ],
       ),
@@ -114,7 +94,7 @@ class SubTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.only(right: 56.0),
+      padding: EdgeInsets.all(20),
       child: Text(
         'Login to your account',
         style: TextStyle(
@@ -239,7 +219,7 @@ class _LoginFieldsState extends State<LoginFields> {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ProfilePageView(),
+                  builder: (context) => const ProfilePageView(),
                 ));
               },
               child: const Padding(
