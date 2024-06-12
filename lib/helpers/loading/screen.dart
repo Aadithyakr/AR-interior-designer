@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:adhicine/helpers/loading/controller.dart';
 import 'package:flutter/material.dart';
+import 'package:pro_s6/helpers/loading/controller.dart';
 
 class LoadingScreen {
   static final LoadingScreen _shared = LoadingScreen._sharedInstance();

@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pro_s6/screens/profile_page_view.dart';
 import 'package:pro_s6/screens/sign_up.dart';
 
 class WelcomeBackPage extends StatefulWidget {
@@ -237,7 +238,9 @@ class _LoginFieldsState extends State<LoginFields> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                //Navigator.of(context).push(MaterialPageRoute(builder: (context) => SplashScreen(),;
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ProfilePageView(),
+                ));
               },
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),

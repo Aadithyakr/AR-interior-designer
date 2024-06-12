@@ -435,7 +435,10 @@ class _SignUpFieldsState extends State<SignUpFields> {
                 ),
               ),
             ),
-            FormError(errors: errors),
+            FormError(
+              errors: errors,
+              key: UniqueKey(),
+            ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
