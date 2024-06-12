@@ -71,7 +71,7 @@ class WelcomeBackTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Text(
-      'Welcome Back ,',
+      'Welcome Back,',
       style: TextStyle(
         color: Colors.white,
         fontSize: 34.0,
