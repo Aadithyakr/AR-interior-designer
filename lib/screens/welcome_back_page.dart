@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pro_s6/screens/homepage/homepage_view.dart';
 import 'package:pro_s6/screens/profile_page_view.dart';
 import 'package:pro_s6/screens/sign_up.dart';
 
@@ -239,7 +240,7 @@ class _LoginFieldsState extends State<LoginFields> {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ProfilePageView(),
+                  builder: (context) => HomeScreen(),
                 ));
               },
               child: const Padding(
