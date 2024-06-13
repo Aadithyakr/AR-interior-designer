@@ -1,3 +1,4 @@
+import 'package:pro_s6/screens/forgot_password.dart';
 import 'package:pro_s6/screens/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "Montserrat",
       ),
-      home: const SplashScreen(),
+      home: const ForgotPasswordView(),
     );
   }
 }

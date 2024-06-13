@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pro_s6/constants.dart';
 import 'package:pro_s6/form_error.dart';
+import 'package:pro_s6/screens/componenets/alternate_auth_bar.dart';
+import 'package:pro_s6/screens/componenets/background_image.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -30,35 +32,13 @@ class _SignUpState extends State<SignUpView> {
   }
 }
 
-class BackgroundImage extends StatelessWidget {
-  const BackgroundImage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/welcome.png'),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-        child: Container(
-          decoration: BoxDecoration(color: Colors.white.withOpacity(0.0)),
-        ),
-      ),
-    );
-  }
-}
-
 class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 28.0),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -70,38 +50,13 @@ class SignUpForm extends StatelessWidget {
                 Icons.arrow_back_ios,
                 color: Colors.white,
               )),
-          const SizedBox(
-            height: 75,
-          ),
-          const SignUpTitle(),
-          const SizedBox(
-            height: 45,
-          ),
+          const Expanded(
+              child:
+                  Align(alignment: Alignment.centerLeft, child: SignUpTitle())),
           const SubTitle(),
-          const SizedBox(
-            height: 20,
-          ),
-          SignUpFields(),
-          const SizedBox(
-            height: 125,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SocialCard(
-                icon: "assets/icons/google-icon.svg",
-                press: () {},
-              ),
-              SocialCard(
-                icon: "assets/icons/facebook.svg",
-                press: () {},
-              ),
-              SocialCard(
-                icon: "assets/icons/twitter.svg",
-                press: () {},
-              ),
-            ],
-          ),
+          const SignUpFields(),
+          const Expanded(child: Divider()),
+          const AlternateAuth(),
         ],
       ),
     );
@@ -137,7 +92,7 @@ class SubTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.only(right: 56.0),
+      padding: EdgeInsets.all(10),
       child: Text(
         'Enter your details',
         style: TextStyle(
