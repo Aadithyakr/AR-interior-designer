@@ -31,6 +31,8 @@ dependencies:
   bloc_concurrency: ^0.2.5
   flutter_bloc: ^8.1.5
   equatable: ^2.0.5
+  flutter_page_indicator_tv: ^0.0.3-nullsafety
+  swiper_detector: ^0.0.1
 
 dev_dependencies:
   flutter_test:
