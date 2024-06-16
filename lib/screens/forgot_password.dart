@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pro_s6/screens/componenets/background_image.dart';
+import 'package:pro_s6/screens/welcome_back_page.dart';
 
 class ForgotPasswordView extends StatefulWidget {
   const ForgotPasswordView({super.key});
@@ -46,7 +47,11 @@ class _SignUpState extends State<ForgotPasswordView> {
                       .copyWith(color: Colors.white70),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const WelcomeBackPage(),
+                    ));
+                  },
                   child: const Text('Continue to Login'),
                 ),
                 Expanded(

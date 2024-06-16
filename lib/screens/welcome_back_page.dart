@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_s6/screens/homepage/homepage_view.dart';
 import 'package:pro_s6/screens/componenets/alternate_auth_bar.dart';
 import 'package:pro_s6/screens/componenets/background_image.dart';
-import 'package:pro_s6/screens/profile_page_view.dart';
+import 'package:pro_s6/screens/profile_page/components/profile_page_view.dart';
 import 'package:pro_s6/screens/sign_up.dart';
 
 class WelcomeBackPage extends StatefulWidget {
@@ -220,8 +220,7 @@ class _LoginFieldsState extends State<LoginFields> {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => HomeScreen(),
-
+                  // builder: (context) => HomeScreen(),
                   builder: (context) => const ProfilePageView(),
                 ));
               },
