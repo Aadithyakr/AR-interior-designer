@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:pro_s6/helpers/loading/profile_menu.dart';
 import 'package:pro_s6/helpers/loading/profile_pic.dart';
+import 'package:pro_s6/screens/profile_page/components/components/settings_page.dart';
 
 class ProfilePageView extends StatelessWidget {
   static String routeName = "/profile";
@@ -43,7 +44,10 @@ class ProfilePageView extends StatelessWidget {
                     ProfileMenu(
                       text: "Settings",
                       icon: Icons.settings,
-                      press: () {},
+                      press: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => SettingsPage()));
+                      },
                     ),
                     ProfileMenu(
                       text: "Help Center",
