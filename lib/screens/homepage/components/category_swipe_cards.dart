@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:pro_s6/screens/product_display.dart';
+import 'package:pro_s6/screens/product_view.dart';
 import 'section_title.dart';
 
-class CategorySwipeCards extends StatelessWidget {
+class CategorySwipeCards extends StatefulWidget {
   const CategorySwipeCards({
     super.key,
   });
 
+  @override
+  State<CategorySwipeCards> createState() => _CategorySwipeCardsState();
+}
+
+class _CategorySwipeCardsState extends State<CategorySwipeCards> {
+  List<ProductViewPage> products = [
+    ProductViewPage('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
+    ProductViewPage(
+        'assets/chairs.jpg', 'Chair', 'Cap with beautiful design', 10)
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,15 +37,14 @@ class CategorySwipeCards extends StatelessWidget {
                 image: "assets/Sofa.jpg",
                 category: "Sofas",
                 press: () {
-                  //TODO
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => ProductPage(product: products[1])));
                 },
               ),
               CategoryCard(
                 image: "assets/tables.jpg",
                 category: "Tables",
-                press: () {
-                  //TODO
-                },
+                press: () {},
               ),
               CategoryCard(
                 image: "assets/lamps.jpg",

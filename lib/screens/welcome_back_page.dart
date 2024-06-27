@@ -1,11 +1,11 @@
-import 'dart:ui';
+import 'package:pro_s6/screens/product_display.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_s6/screens/homepage/homepage_view.dart';
 import 'package:pro_s6/screens/componenets/alternate_auth_bar.dart';
 import 'package:pro_s6/screens/componenets/background_image.dart';
-import 'package:pro_s6/screens/profile_page/components/profile_page_view.dart';
+import 'package:pro_s6/screens/product_view.dart';
 import 'package:pro_s6/screens/sign_up.dart';
 
 class WelcomeBackPage extends StatefulWidget {
@@ -118,6 +118,12 @@ class LoginFields extends StatefulWidget {
 class _LoginFieldsState extends State<LoginFields> {
   bool obscureText1 = true;
 
+  List<ProductViewPage> products = [
+    ProductViewPage('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
+    ProductViewPage(
+        'assets/chairs.jpg', 'Chair', 'Cap with beautiful design', 10)
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -220,9 +226,8 @@ class _LoginFieldsState extends State<LoginFields> {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  // builder: (context) => HomeScreen(),
-                  builder: (context) => const ProfilePageView(),
-                ));
+                    // builder: (context) => const HomeScreen(),
+                    builder: (_) => ProductPage(product: products[1])));
               },
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),

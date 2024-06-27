@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pro_s6/screens/homepage/components/product_card.dart';
 import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
@@ -17,7 +16,7 @@ class PopularProducts extends StatelessWidget {
           },
         ),
       ),
-      SingleChildScrollView(
+      const SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [],
@@ -28,15 +27,13 @@ class PopularProducts extends StatelessWidget {
 }
 
 class Product {
-  final int id;
   final String title, description;
   final List<String> images;
-  final double rating, price;
+  final double price;
 
-  Product({
-    required this.id,
+  Product(
+    String s, {
     required this.images,
-    this.rating = 0.0,
     required this.title,
     required this.price,
     required this.description,
