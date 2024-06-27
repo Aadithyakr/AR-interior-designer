@@ -1,3 +1,4 @@
+import 'package:pro_s6/screens/product_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glassmorphism/glassmorphism.dart';
@@ -125,6 +126,12 @@ class _LoginFieldsState extends State<LoginFields> {
     passwordController = TextEditingController();
     emailController = TextEditingController();
   }
+
+  List<ProductViewPage> products = [
+    ProductViewPage('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
+    ProductViewPage(
+        'assets/chairs.jpg', 'Chair', 'Cap with beautiful design', 10)
+  ];
 
   @override
   Widget build(BuildContext context) {
