@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pro_s6/screens/homepage/homepage_view.dart';
-import 'package:pro_s6/screens/sign_up.dart';
+import 'package:pro_s6/screens/auth/sign_up.dart';
 import 'package:flutter/material.dart';
-import 'package:pro_s6/screens/verify_email.dart';
-import 'package:pro_s6/screens/welcome_back_page.dart';
+import 'package:pro_s6/screens/auth/verify_email.dart';
+import 'package:pro_s6/screens/auth/login_view.dart';
 import 'package:pro_s6/services/auth/bloc/bloc.dart';
 import 'package:pro_s6/services/auth/bloc/events.dart';
 import 'package:pro_s6/services/auth/bloc/states.dart';
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
             if (state is AuthStateLoggedIn) {
               return const HomeScreen();
             } else if (state is AuthStateLoggedOut) {
-              return const WelcomeBackPage();
+              return const LoginView();
             } else if (state is AuthStateNeedsVerification) {
               return const VerifyEmailView();
             } else if (state is AuthStateRegistering) {

@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pro_s6/screens/componenets/alternate_auth_bar.dart';
-import 'package:pro_s6/screens/componenets/background_image.dart';
+import 'package:pro_s6/screens/auth/componenets/alternate_auth_bar.dart';
+import 'package:pro_s6/screens/auth/componenets/background_image.dart';
 import 'package:pro_s6/services/auth/bloc/bloc.dart';
 import 'package:pro_s6/services/auth/bloc/events.dart';
 
-class WelcomeBackPage extends StatefulWidget {
-  const WelcomeBackPage({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  WelcomeBackPageState createState() => WelcomeBackPageState();
+  LoginViewState createState() => LoginViewState();
 }
 
-class WelcomeBackPageState extends State<WelcomeBackPage> {
+class LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;

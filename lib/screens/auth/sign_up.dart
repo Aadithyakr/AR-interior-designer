@@ -4,8 +4,8 @@ import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_s6/constants.dart';
 import 'package:pro_s6/form_error.dart';
-import 'package:pro_s6/screens/componenets/alternate_auth_bar.dart';
-import 'package:pro_s6/screens/componenets/background_image.dart';
+import 'package:pro_s6/screens/auth/componenets/alternate_auth_bar.dart';
+import 'package:pro_s6/screens/auth/componenets/background_image.dart';
 import 'package:pro_s6/services/auth/bloc/bloc.dart';
 import 'package:pro_s6/services/auth/bloc/events.dart';
 

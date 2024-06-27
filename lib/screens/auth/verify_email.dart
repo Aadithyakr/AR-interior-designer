@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pro_s6/screens/componenets/background_image.dart';
-import 'package:pro_s6/screens/welcome_back_page.dart';
+import 'package:pro_s6/screens/auth/componenets/background_image.dart';
+import 'package:pro_s6/screens/auth/login_view.dart';
 import 'package:pro_s6/services/auth/bloc/bloc.dart';
 import 'package:pro_s6/services/auth/bloc/events.dart';
 
@@ -53,7 +53,7 @@ class _SignUpState extends State<VerifyEmailView> {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const WelcomeBackPage(),
+                        builder: (context) => const LoginView(),
                       ),
                     );
                   },
