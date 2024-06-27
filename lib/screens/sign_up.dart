@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pro_s6/constants.dart';
 import 'package:pro_s6/form_error.dart';
 import 'package:pro_s6/screens/componenets/alternate_auth_bar.dart';
