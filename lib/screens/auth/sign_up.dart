@@ -406,8 +406,7 @@ class _SignUpFieldsState extends State<SignUpFields> {
                   _formKey.currentState!.save();
 
                   // if all are valid then go to login
-                  context
-                      .watch<AuthBloc>()
+                  BlocProvider.of<AuthBloc>(context)
                       .add(AuthEventRegister(email!, password!));
                 }
               },
