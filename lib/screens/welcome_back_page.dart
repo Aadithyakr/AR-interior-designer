@@ -1,12 +1,11 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pro_s6/screens/homepage/homepage_view.dart';
 import 'package:pro_s6/screens/componenets/alternate_auth_bar.dart';
 import 'package:pro_s6/screens/componenets/background_image.dart';
-import 'package:pro_s6/screens/profile_page/components/profile_page_view.dart';
-import 'package:pro_s6/screens/sign_up.dart';
+import 'package:pro_s6/services/auth/bloc/bloc.dart';
+import 'package:pro_s6/services/auth/bloc/events.dart';
 
 class WelcomeBackPage extends StatefulWidget {
   const WelcomeBackPage({super.key});
@@ -117,6 +116,15 @@ class LoginFields extends StatefulWidget {
 
 class _LoginFieldsState extends State<LoginFields> {
   bool obscureText1 = true;
+  late final TextEditingController passwordController;
+  late final TextEditingController emailController;
+
+  @override
+  void initState() {
+    super.initState();
+    passwordController = TextEditingController();
+    emailController = TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -152,6 +160,7 @@ class _LoginFieldsState extends State<LoginFields> {
                 ],
               ),
               child: TextFormField(
+                controller: emailController,
                 style: const TextStyle(fontSize: 16.0, color: Colors.white),
                 decoration: InputDecoration(
                   prefixIcon: const Icon(
@@ -193,6 +202,7 @@ class _LoginFieldsState extends State<LoginFields> {
                 ],
               ),
               child: TextFormField(
+                controller: passwordController,
                 style: const TextStyle(fontSize: 16.0, color: Colors.white),
                 obscureText: obscureText1,
                 decoration: InputDecoration(
@@ -218,12 +228,14 @@ class _LoginFieldsState extends State<LoginFields> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  // builder: (context) => HomeScreen(),
-                  builder: (context) => const ProfilePageView(),
-                ));
-              },
+              onPressed: () => context.watch<AuthBloc>().add(
+                  AuthEventLogIn(emailController.text, passwordController.text))
+              // {
+              //   Navigator.of(context).push(MaterialPageRoute(
+              //     builder: (context) => const ProfilePageView(),
+              //   ));
+              // }
+              ,
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Log In'),
@@ -289,13 +301,17 @@ class SignUpButton extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const SignUpView(),
-                ),
-              );
-            },
+            onTap: () => BlocProvider.of<AuthBloc>(context)
+                .add(const AuthEvenShouldRegister())
+            // context.watch<AuthBloc>().add(const AuthEvenShouldRegister())
+            //  {
+            //   Navigator.of(context).push(
+            //     MaterialPageRoute(
+            //       builder: (context) => const SignUpView(),
+            //     ),
+            //   );
+            // }
+            ,
             child: const Text(
               'Sign Up',
               style: TextStyle(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,6 +7,8 @@ import 'package:pro_s6/constants.dart';
 import 'package:pro_s6/form_error.dart';
 import 'package:pro_s6/screens/componenets/alternate_auth_bar.dart';
 import 'package:pro_s6/screens/componenets/background_image.dart';
+import 'package:pro_s6/services/auth/bloc/bloc.dart';
+import 'package:pro_s6/services/auth/bloc/events.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -43,9 +45,8 @@ class SignUpForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           IconButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
+              onPressed: () =>
+                  context.read<AuthBloc>().add(const AuthEventLogOut()),
               icon: const Icon(
                 Icons.arrow_back_ios,
                 color: Colors.white,
@@ -116,7 +117,7 @@ class _SignUpFieldsState extends State<SignUpFields> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
-  String? conform_password;
+  String? confirmPassword;
   bool remember = false;
   final List<String?> errors = [];
 
@@ -348,14 +349,14 @@ class _SignUpFieldsState extends State<SignUpFields> {
                 ],
               ),
               child: TextFormField(
-                onSaved: (newValue) => conform_password = newValue,
+                onSaved: (newValue) => confirmPassword = newValue,
                 onChanged: (value) {
                   if (value.isNotEmpty) {
                     removeError(error: kPassNullError);
-                  } else if (value.isNotEmpty && password == conform_password) {
+                  } else if (value.isNotEmpty && password == confirmPassword) {
                     removeError(error: kMatchPassError);
                   }
-                  conform_password = value;
+                  confirmPassword = value;
                 },
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -399,8 +400,11 @@ class _SignUpFieldsState extends State<SignUpFields> {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
+
                   // if all are valid then go to login
-                  Navigator.of(context).pop();
+                  context
+                      .watch<AuthBloc>()
+                      .add(AuthEventRegister(email!, password!));
                 }
               },
               child: const Padding(
@@ -410,35 +414,6 @@ class _SignUpFieldsState extends State<SignUpFields> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class SocialCard extends StatelessWidget {
-  const SocialCard({
-    super.key,
-    this.icon,
-    this.press,
-  });
-
-  final String? icon;
-  final Function? press;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press as void Function()?,
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10),
-        padding: const EdgeInsets.all(12),
-        height: 40,
-        width: 40,
-        decoration: const BoxDecoration(
-          color: Color(0xFFF5F6F9),
-          shape: BoxShape.circle,
-        ),
-        child: SvgPicture.asset(icon!),
       ),
     );
   }

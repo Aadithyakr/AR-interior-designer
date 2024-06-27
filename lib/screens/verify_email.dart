@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pro_s6/screens/componenets/background_image.dart';
 import 'package:pro_s6/screens/welcome_back_page.dart';
+import 'package:pro_s6/services/auth/bloc/bloc.dart';
+import 'package:pro_s6/services/auth/bloc/events.dart';
 
-class ForgotPasswordView extends StatefulWidget {
-  const ForgotPasswordView({super.key});
+class VerifyEmailView extends StatefulWidget {
+  const VerifyEmailView({super.key});
 
   @override
-  State<ForgotPasswordView> createState() => _SignUpState();
+  State<VerifyEmailView> createState() => _SignUpState();
 }
 
-class _SignUpState extends State<ForgotPasswordView> {
+class _SignUpState extends State<VerifyEmailView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -58,11 +61,14 @@ class _SignUpState extends State<ForgotPasswordView> {
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Resend verification email?',
-                          style: TextStyle(color: Colors.amberAccent),
-                        )),
+                      onPressed: () => context
+                          .watch<AuthBloc>()
+                          .add(const AuthEventSendEmailVerification()),
+                      child: const Text(
+                        'Resend verification email?',
+                        style: TextStyle(color: Colors.amberAccent),
+                      ),
+                    ),
                   ),
                 )
               ],
