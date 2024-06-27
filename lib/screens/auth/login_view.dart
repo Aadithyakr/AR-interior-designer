@@ -243,12 +243,12 @@ class _LoginFieldsState extends State<LoginFields> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => context.watch<AuthBloc>().add(
-                    AuthEventLogIn(
-                      emailController.text,
-                      passwordController.text,
-                    ),
-                  ),
+              onPressed: () => BlocProvider.of<AuthBloc>(context).add(
+                AuthEventLogIn(
+                  emailController.text,
+                  passwordController.text,
+                ),
+              ),
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Log In'),
