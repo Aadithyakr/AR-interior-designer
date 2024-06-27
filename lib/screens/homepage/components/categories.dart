@@ -59,7 +59,7 @@ class CategoryCard extends StatelessWidget {
             child: SvgPicture.asset(icon),
           ),
           const SizedBox(height: 4),
-          Text(text, textAlign: TextAlign.center)
+          Text(text, textAlign: TextAlign.center),
         ],
       ),
     );

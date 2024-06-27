@@ -51,9 +51,11 @@ class _SignUpState extends State<VerifyEmailView> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const WelcomeBackPage(),
-                    ));
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const WelcomeBackPage(),
+                      ),
+                    );
                   },
                   child: const Text('Continue to Login'),
                 ),
@@ -70,9 +72,9 @@ class _SignUpState extends State<VerifyEmailView> {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

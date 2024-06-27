@@ -37,7 +37,7 @@ class ProfilePic extends StatelessWidget {
                 child: SvgPicture.asset("assets/icons/Camera Icon.svg"),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

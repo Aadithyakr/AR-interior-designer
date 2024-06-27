@@ -48,7 +48,8 @@ class SettingsPage extends StatelessWidget {
                       icon: Icons.language,
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute(
-                            builder: (_) => const ChangeLanguagePage()),
+                          builder: (_) => const ChangeLanguagePage(),
+                        ),
                       ),
                     ),
                   ),
@@ -59,7 +60,8 @@ class SettingsPage extends StatelessWidget {
                       icon: Icons.notifications,
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute(
-                            builder: (_) => const NotificationSettingsPage()),
+                          builder: (_) => const NotificationSettingsPage(),
+                        ),
                       ),
                     ),
                   ),
@@ -70,7 +72,8 @@ class SettingsPage extends StatelessWidget {
                       icon: Icons.balance,
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute(
-                            builder: (_) => const LegalAboutPage()),
+                          builder: (_) => const LegalAboutPage(),
+                        ),
                       ),
                     ),
                   ),
@@ -89,7 +92,8 @@ class SettingsPage extends StatelessWidget {
                       icon: Icons.lock,
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute(
-                            builder: (_) => const ChangePasswordPage()),
+                          builder: (_) => const ChangePasswordPage(),
+                        ),
                       ),
                     ),
                   ),
@@ -100,7 +104,8 @@ class SettingsPage extends StatelessWidget {
                       icon: Icons.logout_outlined,
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute(
-                            builder: (_) => const WelcomeBackPage()),
+                          builder: (_) => const WelcomeBackPage(),
+                        ),
                       ),
                     ),
                   ),
@@ -119,11 +124,12 @@ class SettingTile extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
 
-  const SettingTile(
-      {super.key,
-      required this.title,
-      required this.icon,
-      required this.onTap});
+  const SettingTile({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {

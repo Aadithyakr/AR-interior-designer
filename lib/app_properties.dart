@@ -7,7 +7,7 @@ const Color transparentYellow = Color.fromRGBO(253, 184, 70, 0.7);
 const Color darkGrey = Color(0xff202020);
 
 const List<BoxShadow> shadow = [
-  BoxShadow(color: Colors.black12, offset: Offset(0, 3), blurRadius: 6)
+  BoxShadow(color: Colors.black12, offset: Offset(0, 3), blurRadius: 6),
 ];
 
 screenAwareSize(int size, BuildContext context) {

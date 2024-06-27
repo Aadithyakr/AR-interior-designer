@@ -53,7 +53,9 @@ class LoginForm extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Align(
-                alignment: Alignment.centerLeft, child: WelcomeBackTitle()),
+              alignment: Alignment.centerLeft,
+              child: WelcomeBackTitle(),
+            ),
           ),
           SubTitle(),
           LoginFields(),
@@ -82,7 +84,7 @@ class WelcomeBackTitle extends StatelessWidget {
             color: Color.fromRGBO(0, 0, 0, 0.15),
             offset: Offset(0, 5),
             blurRadius: 10.0,
-          )
+          ),
         ],
       ),
     );
@@ -127,10 +129,14 @@ class _LoginFieldsState extends State<LoginFields> {
     emailController = TextEditingController();
   }
 
-  List<ProductViewPage> products = [
-    ProductViewPage('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
-    ProductViewPage(
-        'assets/chairs.jpg', 'Chair', 'Cap with beautiful design', 10)
+  List<ProductModel> products = [
+    ProductModel('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
+    ProductModel(
+      'assets/chairs.jpg',
+      'Chair',
+      'Cap with beautiful design',
+      10,
+    ),
   ];
 
   @override
@@ -148,16 +154,17 @@ class _LoginFieldsState extends State<LoginFields> {
               alignment: Alignment.bottomCenter,
               border: 2,
               linearGradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    const Color(0xFFffffff).withOpacity(0.1),
-                    const Color(0xFFFFFFFF).withOpacity(0.05),
-                  ],
-                  stops: const [
-                    0.1,
-                    1,
-                  ]),
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  const Color(0xFFffffff).withOpacity(0.1),
+                  const Color(0xFFFFFFFF).withOpacity(0.05),
+                ],
+                stops: const [
+                  0.1,
+                  1,
+                ],
+              ),
               borderGradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -190,16 +197,17 @@ class _LoginFieldsState extends State<LoginFields> {
               alignment: Alignment.bottomCenter,
               border: 2,
               linearGradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    const Color(0xFFffffff).withOpacity(0.1),
-                    const Color(0xFFFFFFFF).withOpacity(0.05),
-                  ],
-                  stops: const [
-                    0.1,
-                    1,
-                  ]),
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  const Color(0xFFffffff).withOpacity(0.1),
+                  const Color(0xFFFFFFFF).withOpacity(0.05),
+                ],
+                stops: const [
+                  0.1,
+                  1,
+                ],
+              ),
               borderGradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -236,13 +244,11 @@ class _LoginFieldsState extends State<LoginFields> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () => context.watch<AuthBloc>().add(
-                  AuthEventLogIn(emailController.text, passwordController.text))
-              // {
-              //   Navigator.of(context).push(MaterialPageRoute(
-              //     builder: (context) => const ProfilePageView(),
-              //   ));
-              // }
-              ,
+                    AuthEventLogIn(
+                      emailController.text,
+                      passwordController.text,
+                    ),
+                  ),
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Log In'),

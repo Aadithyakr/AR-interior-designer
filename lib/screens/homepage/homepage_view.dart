@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'components/categories.dart';
-import 'components/home_header.dart';
-import 'components/popular_product.dart';
-import 'components/category_swipe_cards.dart';
+import 'package:pro_s6/screens/homepage/components/categories.dart';
+import 'package:pro_s6/screens/homepage/components/home_header.dart';
+import 'package:pro_s6/screens/homepage/components/popular_product.dart';
+import 'package:pro_s6/screens/homepage/components/category_swipe_cards.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

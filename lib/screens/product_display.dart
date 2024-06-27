@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pro_s6/app_properties.dart';
 
 class ProductDisplay extends StatelessWidget {
-  final ProductViewPage product;
+  final ProductModel product;
 
   const ProductDisplay({
     super.key,
@@ -31,7 +31,7 @@ class ProductDisplay extends StatelessWidget {
                         fit: BoxFit.fill,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -42,11 +42,16 @@ class ProductDisplay extends StatelessWidget {
   }
 }
 
-class ProductViewPage {
+class ProductModel {
   String image;
   String name;
   String description;
   double price;
 
-  ProductViewPage(this.image, this.name, this.description, this.price);
+  ProductModel(
+    this.image,
+    this.name,
+    this.description,
+    this.price,
+  );
 }

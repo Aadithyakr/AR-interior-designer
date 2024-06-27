@@ -44,15 +44,16 @@ class SignUpForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           IconButton(
-              onPressed: () =>
-                  context.read<AuthBloc>().add(const AuthEventLogOut()),
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              )),
+            onPressed: () =>
+                context.read<AuthBloc>().add(const AuthEventLogOut()),
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            ),
+          ),
           const Expanded(
-              child:
-                  Align(alignment: Alignment.centerLeft, child: SignUpTitle())),
+            child: Align(alignment: Alignment.centerLeft, child: SignUpTitle()),
+          ),
           const SubTitle(),
           const SignUpFields(),
           const Expanded(child: Divider()),
@@ -79,7 +80,7 @@ class SignUpTitle extends StatelessWidget {
             color: Color.fromRGBO(0, 0, 0, 0.15),
             offset: Offset(0, 5),
             blurRadius: 10.0,
-          )
+          ),
         ],
       ),
     );
@@ -155,16 +156,17 @@ class _SignUpFieldsState extends State<SignUpFields> {
               alignment: Alignment.bottomCenter,
               border: 2,
               linearGradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    const Color(0xFFffffff).withOpacity(0.1),
-                    const Color(0xFFFFFFFF).withOpacity(0.05),
-                  ],
-                  stops: const [
-                    0.1,
-                    1,
-                  ]),
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  const Color(0xFFffffff).withOpacity(0.1),
+                  const Color(0xFFFFFFFF).withOpacity(0.05),
+                ],
+                stops: const [
+                  0.1,
+                  1,
+                ],
+              ),
               borderGradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -196,16 +198,17 @@ class _SignUpFieldsState extends State<SignUpFields> {
               alignment: Alignment.bottomCenter,
               border: 2,
               linearGradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    const Color(0xFFffffff).withOpacity(0.1),
-                    const Color(0xFFFFFFFF).withOpacity(0.05),
-                  ],
-                  stops: const [
-                    0.1,
-                    1,
-                  ]),
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  const Color(0xFFffffff).withOpacity(0.1),
+                  const Color(0xFFFFFFFF).withOpacity(0.05),
+                ],
+                stops: const [
+                  0.1,
+                  1,
+                ],
+              ),
               borderGradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -257,16 +260,17 @@ class _SignUpFieldsState extends State<SignUpFields> {
               alignment: Alignment.bottomCenter,
               border: 2,
               linearGradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    const Color(0xFFffffff).withOpacity(0.1),
-                    const Color(0xFFFFFFFF).withOpacity(0.05),
-                  ],
-                  stops: const [
-                    0.1,
-                    1,
-                  ]),
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  const Color(0xFFffffff).withOpacity(0.1),
+                  const Color(0xFFFFFFFF).withOpacity(0.05),
+                ],
+                stops: const [
+                  0.1,
+                  1,
+                ],
+              ),
               borderGradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -329,16 +333,17 @@ class _SignUpFieldsState extends State<SignUpFields> {
               alignment: Alignment.bottomCenter,
               border: 2,
               linearGradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    const Color(0xFFffffff).withOpacity(0.1),
-                    const Color(0xFFFFFFFF).withOpacity(0.05),
-                  ],
-                  stops: const [
-                    0.1,
-                    1,
-                  ]),
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  const Color(0xFFffffff).withOpacity(0.1),
+                  const Color(0xFFFFFFFF).withOpacity(0.05),
+                ],
+                stops: const [
+                  0.1,
+                  1,
+                ],
+              ),
               borderGradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,

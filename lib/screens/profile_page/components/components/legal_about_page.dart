@@ -36,9 +36,10 @@ class LegalAboutPageState extends State<LegalAboutPage> {
                 child: Text(
                   'Legal & About',
                   style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.0),
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                  ),
                 ),
               ),
               Flexible(

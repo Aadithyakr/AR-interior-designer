@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pro_s6/screens/product_display.dart';
 import 'package:pro_s6/screens/product_view.dart';
-import 'section_title.dart';
+import 'package:pro_s6/screens/homepage/components/section_title.dart';
 
 class CategorySwipeCards extends StatefulWidget {
   const CategorySwipeCards({
@@ -13,10 +13,14 @@ class CategorySwipeCards extends StatefulWidget {
 }
 
 class _CategorySwipeCardsState extends State<CategorySwipeCards> {
-  List<ProductViewPage> products = [
-    ProductViewPage('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
-    ProductViewPage(
-        'assets/chairs.jpg', 'Chair', 'Cap with beautiful design', 10)
+  List<ProductModel> products = [
+    ProductModel('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
+    ProductModel(
+      'assets/chairs.jpg',
+      'Chair',
+      'Cap with beautiful design',
+      10,
+    ),
   ];
   @override
   Widget build(BuildContext context) {
@@ -37,8 +41,11 @@ class _CategorySwipeCardsState extends State<CategorySwipeCards> {
                 image: "assets/Sofa.jpg",
                 category: "Sofas",
                 press: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) => ProductPage(product: products[1])));
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => ProductPage(product: products[1]),
+                    ),
+                  );
                 },
               ),
               CategoryCard(

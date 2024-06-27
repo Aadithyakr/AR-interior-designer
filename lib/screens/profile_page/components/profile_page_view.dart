@@ -46,7 +46,10 @@ class ProfilePageView extends StatelessWidget {
                       icon: Icons.settings,
                       press: () {
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => SettingsPage()));
+                          MaterialPageRoute(
+                            builder: (_) => const SettingsPage(),
+                          ),
+                        );
                       },
                     ),
                     ProfileMenu(

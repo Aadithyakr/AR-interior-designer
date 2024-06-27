@@ -51,32 +51,35 @@ class ChangeCountryPageState extends State<ChangeLanguagePage> {
                 child: Text(
                   'Language A / का',
                   style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.0),
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                  ),
                 ),
               ),
               Flexible(
                 child: ListView(
                   children: languages
-                      .map((l) => ListTile(
-                            onTap: () {
-                              setState(() {
-                                currentLanguage = l;
-                              });
-                            },
-                            title: Text(
-                              l,
-                              style: const TextStyle(fontSize: 14),
-                            ),
-                            trailing: l == currentLanguage
-                                ? const Icon(
-                                    Icons.check_circle,
-                                    color: blue,
-                                    size: 16,
-                                  )
-                                : const SizedBox(),
-                          ))
+                      .map(
+                        (l) => ListTile(
+                          onTap: () {
+                            setState(() {
+                              currentLanguage = l;
+                            });
+                          },
+                          title: Text(
+                            l,
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                          trailing: l == currentLanguage
+                              ? const Icon(
+                                  Icons.check_circle,
+                                  color: blue,
+                                  size: 16,
+                                )
+                              : const SizedBox(),
+                        ),
+                      )
                       .toList(),
                 ),
               ),

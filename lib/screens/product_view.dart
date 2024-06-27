@@ -2,19 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:pro_s6/screens/product_display.dart';
 
 class ProductPage extends StatefulWidget {
-  final ProductViewPage product;
+  final ProductModel product;
 
   const ProductPage({super.key, required this.product});
 
   @override
-  ProductPageState createState() => ProductPageState(product);
+  ProductPageState createState() => ProductPageState();
 }
 
 class ProductPageState extends State<ProductPage> {
-  final ProductViewPage product;
-
-  ProductPageState(this.product);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,27 +25,29 @@ class ProductPageState extends State<ProductPage> {
                   height: 20,
                 ),
                 IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.black87,
-                    )),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black87,
+                  ),
+                ),
                 const SizedBox(
                   height: 10.0,
                 ),
                 ProductDisplay(
-                  product: product,
+                  product: widget.product,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0, right: 16.0),
                   child: Text(
-                    product.name,
+                    widget.product.name,
                     style: const TextStyle(
-                        color: Colors.black87,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 30.0),
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 30.0,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -59,47 +57,53 @@ class ProductPageState extends State<ProductPage> {
                   height: 16.0,
                 ),
                 Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, bottom: 130),
-                    child: Container(
-                      height: 150,
-                      width: 400,
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 2,
-                            blurRadius: 2,
-                            offset: const Offset(0, 5),
+                  padding: const EdgeInsets.only(
+                    left: 20.0,
+                    right: 20.0,
+                    bottom: 130,
+                  ),
+                  child: Container(
+                    height: 150,
+                    width: 400,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.grey),
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: 2,
+                          blurRadius: 2,
+                          offset: const Offset(0, 5),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        const Text(
+                          'Details',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "NunitoSans",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 18.0,
                           ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          const Text(
-                            'Details',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: "NunitoSans",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 18.0),
+                        ),
+                        Text(
+                          widget.product.description,
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: "NunitoSans",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 16.0,
                           ),
-                          Text(
-                            product.description,
-                            style: const TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w800,
-                                fontFamily: "NunitoSans",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 16.0),
-                          ),
-                        ],
-                      ),
-                    )),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

@@ -68,9 +68,10 @@ class NotificationSettingsPageState extends State<NotificationSettingsPage> {
                 child: Text(
                   'Notifications',
                   style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.0),
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                  ),
                 ),
               ),
               Flexible(
@@ -89,10 +90,11 @@ class NotificationSettingsPageState extends State<NotificationSettingsPage> {
                       trailing: MyWidget(newOffers),
                     ),
                     ListTile(
-                        title: const Text('Feedbacks and Reviews'),
-                        trailing: MyWidget(
-                          feedbackReviews,
-                        )),
+                      title: const Text('Feedbacks and Reviews'),
+                      trailing: MyWidget(
+                        feedbackReviews,
+                      ),
+                    ),
                     ListTile(
                       title: const Text('Updates'),
                       trailing: MyWidget(updates),

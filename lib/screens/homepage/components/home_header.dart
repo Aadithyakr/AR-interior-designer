@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'search_field.dart';
+import 'package:pro_s6/screens/homepage/components/search_field.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({

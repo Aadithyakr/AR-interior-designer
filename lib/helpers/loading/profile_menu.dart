@@ -27,16 +27,17 @@ class ProfileMenu extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       border: 2,
       linearGradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            const Color.fromARGB(255, 10, 12, 132).withOpacity(0.3),
-            const Color.fromARGB(255, 81, 9, 101).withOpacity(0.2),
-          ],
-          stops: const [
-            0.1,
-            1,
-          ]),
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          const Color.fromARGB(255, 10, 12, 132).withOpacity(0.3),
+          const Color.fromARGB(255, 81, 9, 101).withOpacity(0.2),
+        ],
+        stops: const [
+          0.1,
+          1,
+        ],
+      ),
       borderGradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
@@ -63,21 +64,22 @@ class ProfileMenu extends StatelessWidget {
             ),
             const SizedBox(width: 40),
             Expanded(
-                child: Text(
-              text,
-              style: GoogleFonts.pacifico(
-                color: Colors.white,
-                fontSize: 20.0,
-                fontWeight: FontWeight.w400,
-                shadows: [
-                  const BoxShadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.15),
-                    offset: Offset(0, 5),
-                    blurRadius: 10.0,
-                  )
-                ],
+              child: Text(
+                text,
+                style: GoogleFonts.pacifico(
+                  color: Colors.white,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w400,
+                  shadows: [
+                    const BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.15),
+                      offset: Offset(0, 5),
+                      blurRadius: 10.0,
+                    ),
+                  ],
+                ),
               ),
-            )),
+            ),
             const Icon(
               Icons.arrow_forward_ios,
               color: Colors.white,
