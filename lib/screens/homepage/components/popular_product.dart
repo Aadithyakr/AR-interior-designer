@@ -27,17 +27,3 @@ class PopularProducts extends StatelessWidget {
     );
   }
 }
-
-class Product {
-  final String title, description;
-  final List<String> images;
-  final double price;
-
-  Product(
-    String s, {
-    required this.images,
-    required this.title,
-    required this.price,
-    required this.description,
-  });
-}

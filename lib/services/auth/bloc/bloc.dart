@@ -85,8 +85,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               isLoading: false,
             ),
           );
-        } else if (!user.isEmailVerified) {
-          emit(const AuthStateNeedsVerification(isLoading: false));
+        } else if (user.isEmailVerified != null) {
+          if (!user.isEmailVerified!) {
+            emit(const AuthStateNeedsVerification(isLoading: false));
+          }
         } else {
           emit(
             AuthStateLoggedIn(
@@ -116,7 +118,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             email: email,
             password: password,
           );
-          if (!user.isEmailVerified) {
+          if (!user.isEmailVerified!) {
             emit(
               const AuthStateLoggedOut(
                 exception: null,
