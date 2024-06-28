@@ -1,13 +1,13 @@
-import 'package:pro_s6/services/cart/product.dart';
+import 'package:pro_s6/services/product/product.dart';
 
 abstract class CartProvider {
   Future<Iterable<Product>> get cartItems;
 
-  void addToCart({required Product product});
+  Future<void> addToCart({required Product product});
 
-  void removeFromCart({required Product product});
+  Future<void> removeFromCart({required Product product});
 
-  void emptyCart();
+  Future<void> emptyCart();
 
-  void checkOut({Product? product});
+  Future<void> checkOut({Product? product});
 }
