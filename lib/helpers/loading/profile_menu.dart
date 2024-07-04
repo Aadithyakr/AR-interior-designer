@@ -42,8 +42,8 @@ class ProfileMenu extends StatelessWidget {
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
-          const Color.fromARGB(255, 136, 18, 18).withOpacity(0.5),
-          const Color.fromARGB(255, 80, 3, 3).withOpacity(0.5),
+          const Color.fromARGB(255, 58, 56, 189).withOpacity(0.5),
+          const Color.fromARGB(255, 131, 47, 187).withOpacity(0.5),
         ],
       ),
       child: TextButton(
@@ -58,15 +58,18 @@ class ProfileMenu extends StatelessWidget {
             const SizedBox(
               height: 100,
             ),
-            Icon(
-              icon,
-              color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                icon,
+                color: Colors.white,
+              ),
             ),
             const SizedBox(width: 40),
             Expanded(
               child: Text(
                 text,
-                style: GoogleFonts.pacifico(
+                style: GoogleFonts.anton(
                   color: Colors.white,
                   fontSize: 20.0,
                   fontWeight: FontWeight.w400,

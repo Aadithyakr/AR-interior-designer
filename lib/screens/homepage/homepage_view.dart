@@ -1,12 +1,16 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
+import 'package:flutter/material.dart'; // Add this import
 import 'package:pro_s6/app_properties.dart';
 import 'package:pro_s6/rive_models/menu.dart';
 import 'package:pro_s6/rive_models/rive_utils.dart';
 import 'package:pro_s6/screens/btm_nav_bar.dart';
-import 'package:pro_s6/screens/homepage/components/categories.dart';
-import 'package:pro_s6/screens/homepage/components/home_header.dart';
+import 'package:pro_s6/screens/favourite_view.dart';
 import 'package:pro_s6/screens/homepage/components/popular_product.dart';
 import 'package:pro_s6/screens/homepage/components/category_swipe_cards.dart';
+import 'package:pro_s6/screens/notification_view.dart';
+import 'package:pro_s6/screens/profile_page/profile_page_view.dart';
+import 'package:pro_s6/screens/search_view.dart';
+import 'package:rive/rive.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,10 +19,19 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Menu selectedBottonNav = bottomNavItems.first;
+  late AssetImage myAsset;
   late Animation<double> animation;
+  late PageController pageController;
+  void navigationTapped(int page) {
+    pageController.jumpToPage(page);
+  }
+
+  void onPageChanged(int page) {
+    setState(() {});
+  }
+
   void updateSelectedBtmNav(Menu menu) {
     if (selectedBottonNav != menu) {
       setState(() {
@@ -29,8 +42,12 @@ class _HomeScreenState extends State<HomeScreen>
 
   late AnimationController _animationController;
   late Animation<double> scalAnimation;
+
   @override
   void initState() {
+    super.initState();
+    myAsset = const AssetImage('assets/Design1loop.gif');
+    pageController = PageController();
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 200),
@@ -51,12 +68,13 @@ class _HomeScreenState extends State<HomeScreen>
         curve: Curves.fastOutSlowIn,
       ),
     );
-    super.initState();
   }
 
   @override
   void dispose() {
     _animationController.dispose();
+    pageController.dispose();
+    myAsset.evict();
     super.dispose();
   }
 
@@ -97,6 +115,8 @@ class _HomeScreenState extends State<HomeScreen>
                       press: () {
                         RiveUtils.chnageSMIBoolState(navBar.rive.status!);
                         updateSelectedBtmNav(navBar);
+                        navigationTapped(index);
+                        print('$index suvgwgwi');
                       },
                       riveOnInit: (artboard) {
                         navBar.rive.status = RiveUtils.getRiveInput(
@@ -112,19 +132,50 @@ class _HomeScreenState extends State<HomeScreen>
             ),
           ),
         ),
-        body: const SafeArea(
-          child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(vertical: 16),
-            child: Column(
-              children: [
-                HomeHeader(),
-                Categories(),
-                CategorySwipeCards(),
-                SizedBox(height: 20),
-                PopularProducts(),
-                SizedBox(height: 20),
-              ],
-            ),
+        body: SafeArea(
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                  child: const SizedBox(),
+                ),
+              ),
+              const RiveAnimation.asset(
+                "assets/RiveAssets/shapes.riv",
+              ),
+              Positioned.fill(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+                  child: const SizedBox(),
+                ),
+              ),
+              PageView(
+                controller: pageController,
+                onPageChanged: onPageChanged,
+                children: [
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Image(image: myAsset),
+                        // Image.asset(
+                        //   'assets/Design1loop.gif',
+                        //   fit: BoxFit.fill,
+                        // ),
+                        const CategorySwipeCards(),
+                        const SizedBox(height: 20),
+                        const PopularProducts(),
+                        const SizedBox(height: 20),
+                      ],
+                    ),
+                  ),
+                  const SearchView(),
+                  const FavouriteView(),
+                  const NotificationView(),
+                  const ProfilePageView(),
+                ],
+              ),
+            ],
           ),
         ),
       ),
