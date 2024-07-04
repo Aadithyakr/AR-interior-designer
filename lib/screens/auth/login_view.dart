@@ -1,3 +1,4 @@
+import 'package:pro_s6/screens/homepage/homepage_view.dart';
 import 'package:pro_s6/screens/product_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -249,6 +250,11 @@ class _LoginFieldsState extends State<LoginFields> {
                   passwordController.text,
                 ),
               ),
+              // onPressed: () {
+              //   Navigator.of(context).push(MaterialPageRoute(
+              //     builder: (_) => const HomeScreen(),
+              //   ));
+              // },
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Log In'),
