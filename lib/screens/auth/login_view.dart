@@ -244,17 +244,17 @@ class _LoginFieldsState extends State<LoginFields> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => BlocProvider.of<AuthBloc>(context).add(
-                AuthEventLogIn(
-                  emailController.text,
-                  passwordController.text,
-                ),
-              ),
-              // onPressed: () {
-              //   Navigator.of(context).push(MaterialPageRoute(
-              //     builder: (_) => const HomeScreen(),
-              //   ));
-              // },
+              // onPressed: () => BlocProvider.of<AuthBloc>(context).add(
+              //   AuthEventLogIn(
+              //     emailController.text,
+              //     passwordController.text,
+              //   ),
+              // ),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => const HomeScreen(),
+                ));
+              },
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Log In'),
