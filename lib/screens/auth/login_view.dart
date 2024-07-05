@@ -60,7 +60,9 @@ class LoginForm extends StatelessWidget {
           ),
           SubTitle(),
           LoginFields(),
-          Expanded(child: AlternateAuth()),
+          Expanded(
+            child: AlternateAuth(),
+          ),
           SignUpButton(),
           ForgotPassword(),
         ],

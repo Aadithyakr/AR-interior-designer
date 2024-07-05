@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pro_s6/screens/homepage/components/popular_product.dart';
+import 'package:pro_s6/services/product/product.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
