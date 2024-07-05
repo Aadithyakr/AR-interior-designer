@@ -4,7 +4,6 @@ import 'package:pro_s6/app_properties.dart';
 import 'package:pro_s6/screens/auth/login_view.dart';
 import 'package:pro_s6/screens/profile_page/components/change_language_page.dart';
 import 'package:pro_s6/screens/profile_page/components/change_password_page.dart';
-import 'package:pro_s6/screens/profile_page/components/legal_about_page.dart';
 import 'package:pro_s6/screens/profile_page/components/notifications_settings_page.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -61,18 +60,6 @@ class SettingsPage extends StatelessWidget {
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (_) => const NotificationSettingsPage(),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: SettingTile(
-                      title: 'Legal & About',
-                      icon: Icons.balance,
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => const LegalAboutPage(),
                         ),
                       ),
                     ),
