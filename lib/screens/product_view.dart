@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pro_s6/screens/mode_view.dart';
 import 'package:pro_s6/screens/product_display.dart';
+import 'package:pro_s6/services/cart/cart_service.dart';
 
 class ProductPage extends StatefulWidget {
-  final ProductModel product;
+  final Product product;
 
   const ProductPage({super.key, required this.product});
 

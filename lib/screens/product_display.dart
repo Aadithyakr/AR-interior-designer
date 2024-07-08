@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pro_s6/app_properties.dart';
+import 'package:pro_s6/services/cart/cart_service.dart';
 
 class ProductDisplay extends StatelessWidget {
-  final ProductModel product;
+  final Product product;
 
   const ProductDisplay({
     super.key,
@@ -40,18 +41,4 @@ class ProductDisplay extends StatelessWidget {
       ],
     );
   }
-}
-
-class ProductModel {
-  String image;
-  String name;
-  String description;
-  double price;
-
-  ProductModel(
-    this.image,
-    this.name,
-    this.description,
-    this.price,
-  );
 }

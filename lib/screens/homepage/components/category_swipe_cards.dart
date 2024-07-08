@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pro_s6/screens/homepage/components/popular_product.dart';
 import 'package:pro_s6/screens/product_display.dart';
 import 'package:pro_s6/screens/product_view.dart';
 import 'package:pro_s6/screens/homepage/components/section_title.dart';
+import 'package:pro_s6/services/cart/cart_service.dart';
 
 class CategorySwipeCards extends StatefulWidget {
   const CategorySwipeCards({
@@ -13,15 +15,6 @@ class CategorySwipeCards extends StatefulWidget {
 }
 
 class _CategorySwipeCardsState extends State<CategorySwipeCards> {
-  List<ProductModel> products = [
-    ProductModel('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
-    ProductModel(
-      'assets/chairs.jpg',
-      'Chair',
-      'Cap with beautiful design',
-      10,
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return Column(

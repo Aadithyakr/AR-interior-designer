@@ -75,10 +75,10 @@ class _CartItemsListState extends State<CartItemsList> {
             final product = cartProvider.cartItems[index];
             return ListTile(
               leading: Image.network(
-                product.images.isNotEmpty ? product.images.first : '',
+                product.image,
               ),
               title: Text(product.name),
-              subtitle: Text('\$${product.price.toString()}'),
+              subtitle: Text(product.description),
             );
           },
         );
