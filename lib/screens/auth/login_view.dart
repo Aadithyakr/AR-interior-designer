@@ -59,7 +59,10 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           SubTitle(),
-          LoginFields(),
+          Align(
+            alignment: Alignment.center,
+            child: LoginFields(),
+          ),
           Expanded(
             child: AlternateAuth(),
           ),
@@ -253,9 +256,11 @@ class _LoginFieldsState extends State<LoginFields> {
               //   ),
               // ),
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (_) => const HomeScreen(),
-                ));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const HomeScreen(),
+                  ),
+                );
               },
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),

@@ -1,45 +1,106 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:pro_s6/services/cart/cart_provider.dart';
-import 'package:pro_s6/services/product/product.dart';
 
-class CartService implements CartProvider {
+class CartService {
   CartService._sharedInstance();
   static final CartService _shared = CartService._sharedInstance();
   factory CartService() => _shared;
 
-  final products = FirebaseFirestore.instance.collection('carts');
+  final usersCollection = FirebaseFirestore.instance.collection('users');
 
-  @override
-  Future<void> addToCart({required Product product}) {
-    // TODO: implement addToCart
-    throw UnimplementedError();
+  Future<void> addToCart({
+    required String userId,
+    required Product product,
+  }) async {
+    final userCart = usersCollection.doc(userId).collection('cart');
+    await userCart.doc(product.id.toString()).set(product.toMap());
   }
 
-  @override
-  // TODO: implement cartItems
-  Future<Iterable<Product>> get cartItems => throw UnimplementedError();
-
-  @override
-  Future<void> checkOut({Product? product}) {
-    // TODO: implement checkOut
-    throw UnimplementedError();
+  Future<Iterable<Product>> cartItems({required String userId}) async {
+    final userCart = usersCollection.doc(userId).collection('cart');
+    final querySnapshot = await userCart.get();
+    return querySnapshot.docs.map((doc) => Product.fromMap(doc.data()));
   }
 
-  @override
-  Future<void> createProduct() {
-    // TODO: implement createProduct
-    throw UnimplementedError();
+  Future<void> checkOut({required String userId, Product? product}) async {
+    final userCart = usersCollection.doc(userId).collection('cart');
+    if (product != null) {
+      await userCart
+          .doc(product.id.toString())
+          .update({'status': 'checkedOut'});
+    } else {
+      final querySnapshot = await userCart.get();
+      for (var doc in querySnapshot.docs) {
+        await userCart.doc(doc.id).update({'status': 'checkedOut'});
+      }
+    }
   }
 
-  @override
-  Future<void> emptyCart() {
-    // TODO: implement emptyCart
-    throw UnimplementedError();
+  Future<void> createProduct({
+    required String userId,
+    required Product product,
+  }) async {
+    final userCart = usersCollection.doc(userId).collection('cart');
+    await userCart.doc(product.id.toString()).set(product.toMap());
   }
 
-  @override
-  Future<void> removeFromCart({required Product product}) {
-    // TODO: implement removeFromCart
-    throw UnimplementedError();
+  Future<void> emptyCart({required String userId}) async {
+    final userCart = usersCollection.doc(userId).collection('cart');
+    final querySnapshot = await userCart.get();
+    for (var doc in querySnapshot.docs) {
+      await userCart.doc(doc.id).delete();
+    }
+  }
+
+  Future<void> removeFromCart({
+    required String userId,
+    required Product product,
+  }) async {
+    final userCart = usersCollection.doc(userId).collection('cart');
+    await userCart.doc(product.id.toString()).delete();
+  }
+}
+
+class Product {
+  final int id;
+  final String title, description, model3D;
+  final List<String> images;
+  final double rating, price;
+  final bool isFavourite;
+
+  Product(
+    this.model3D, {
+    required this.id,
+    required this.images,
+    this.rating = 0.0,
+    this.isFavourite = false,
+    required this.title,
+    required this.price,
+    required this.description,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'description': description,
+      'model3D': model3D,
+      'images': images,
+      'rating': rating,
+      'price': price,
+      'isFavourite': isFavourite,
+    };
+  }
+
+  factory Product.fromMap(Map<String, dynamic> map) {
+    return Product(
+      map['model3D'],
+      id: map['id'],
+      title: map['title'],
+      description: map['description'],
+      images: List<String>.from(map['images']),
+      rating: map['rating'] ?? 0.0,
+      price: map['price'],
+      isFavourite: map['isFavourite'] ?? false,
+    );
   }
 }

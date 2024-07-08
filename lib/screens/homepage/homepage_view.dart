@@ -170,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     ),
                   ),
                   const SearchView(),
-                  const FavouriteView(),
+                  const CartScreen(),
                   const NotificationView(),
                   const ProfilePageView(),
                 ],
