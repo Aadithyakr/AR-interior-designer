@@ -1,7 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:pro_s6/app_properties.dart';
-import 'package:pro_s6/screens/auth/login_view.dart';
 import 'package:pro_s6/screens/profile_page/components/change_language_page.dart';
 import 'package:pro_s6/screens/profile_page/components/change_password_page.dart';
 import 'package:pro_s6/screens/profile_page/components/notifications_settings_page.dart';
@@ -30,11 +28,12 @@ class SettingsPage extends StatelessWidget {
                     Row(
                       children: [
                         IconButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            icon: const Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.black,
-                            )),
+                          onPressed: () => Navigator.of(context).pop(),
+                          icon: const Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.black,
+                          ),
+                        ),
                         const Text(
                           'Settings',
                           style: TextStyle(

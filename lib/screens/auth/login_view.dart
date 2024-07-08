@@ -1,5 +1,3 @@
-import 'package:pro_s6/screens/homepage/homepage_view.dart';
-import 'package:pro_s6/screens/product_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glassmorphism/glassmorphism.dart';
@@ -8,7 +6,6 @@ import 'package:pro_s6/screens/auth/componenets/alternate_auth_bar.dart';
 import 'package:pro_s6/screens/auth/componenets/background_image.dart';
 import 'package:pro_s6/services/auth/bloc/bloc.dart';
 import 'package:pro_s6/services/auth/bloc/events.dart';
-import 'package:pro_s6/services/auth/service.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -246,16 +243,6 @@ class _LoginFieldsState extends State<LoginFields> {
                   passwordController.text,
                 ),
               ),
-              // onPressed: () {
-              //   Navigator.of(context).push(
-              //     MaterialPageRoute(
-              //       builder: (_) => HomeScreen(
-              //         userId: AuthService.firebase().currentUser!.id,
-              //       ),
-              //     ),
-              //   );
-              // }
-
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Log In'),

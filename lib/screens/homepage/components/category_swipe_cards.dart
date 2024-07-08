@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pro_s6/screens/homepage/components/popular_product.dart';
-import 'package:pro_s6/screens/product_display.dart';
 import 'package:pro_s6/screens/product_view.dart';
 import 'package:pro_s6/screens/homepage/components/section_title.dart';
-import 'package:pro_s6/services/cart/cart_service.dart';
 
 class CategorySwipeCards extends StatefulWidget {
   const CategorySwipeCards({

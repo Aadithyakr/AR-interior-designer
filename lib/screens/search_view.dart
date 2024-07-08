@@ -4,11 +4,16 @@ class SearchView extends StatefulWidget {
   const SearchView({super.key});
 
   @override
-  _SearchPageState createState() => _SearchPageState();
+  State<SearchView> createState() => _SearchViewState();
 }
 
-class _SearchPageState extends State<SearchView> {
-  final TextEditingController _searchController = TextEditingController();
+class _SearchViewState extends State<SearchView> {
+  late final TextEditingController _searchController;
+  @override
+  void initState() {
+    super.initState();
+    _searchController = TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -160,13 +160,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: Column(
                       children: [
                         ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(40),
-                                bottomRight: Radius.circular(40)),
-                            child: Image(image: myAsset)),
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(40),
+                            bottomRight: Radius.circular(40),
+                          ),
+                          child: Image(image: myAsset),
+                        ),
                         const CategorySwipeCards(),
                         const SizedBox(height: 20),
-                        const PopularProducts(),
+                        PopularProducts(
+                          userId: userId,
+                        ),
                         const SizedBox(height: 20),
                       ],
                     ),

@@ -17,10 +17,12 @@ class CartProvider with ChangeNotifier {
 
   Future<void> addProductToCart(String userId, Product product) async {
     await _cartService.addToCart(userId: userId, product: product);
+    notifyListeners();
   }
 
   Future<void> removeProductFromCart(String userId, Product product) async {
     await _cartService.removeFromCart(userId: userId, product: product);
+    notifyListeners();
   }
 }
 
@@ -35,7 +37,11 @@ class CartScreen extends StatelessWidget {
       create: (context) => CartProvider(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Your Cart'),
+          centerTitle: true,
+          title: const Text(
+            'Favourites 🩷',
+            textAlign: TextAlign.center,
+          ),
         ),
         body: CartItemsList(userId: userId),
       ),
@@ -74,7 +80,7 @@ class _CartItemsListState extends State<CartItemsList> {
           itemBuilder: (context, index) {
             final product = cartProvider.cartItems[index];
             return ListTile(
-              leading: Image.network(
+              leading: Image.asset(
                 product.image,
               ),
               title: Text(product.name),
