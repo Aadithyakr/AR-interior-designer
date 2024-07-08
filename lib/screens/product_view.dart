@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pro_s6/screens/mode_view.dart';
 import 'package:pro_s6/screens/product_display.dart';
 
 class ProductPage extends StatefulWidget {
@@ -137,14 +138,22 @@ class ProductPageState extends State<ProductPage> {
                   ),
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   height: 70,
-                  child: const Center(
-                    child: Text(
-                      'Buy now',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  child: Center(
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const ModelView()),
+                        );
+                      },
+                      child: const Text('Buy Now'),
                     ),
+                    // child: Text(
+                    //   'Buy now',
+                    //   style: TextStyle(
+                    //     color: Colors.white,
+                    //     fontWeight: FontWeight.bold,
+                    //   ),
+                    // ),
                   ),
                 ),
               ],

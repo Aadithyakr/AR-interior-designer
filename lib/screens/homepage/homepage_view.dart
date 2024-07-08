@@ -160,10 +160,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: Column(
                       children: [
                         Image(image: myAsset),
-                        // Image.asset(
-                        //   'assets/Design1loop.gif',
-                        //   fit: BoxFit.fill,
-                        // ),
                         const CategorySwipeCards(),
                         const SizedBox(height: 20),
                         const PopularProducts(),
