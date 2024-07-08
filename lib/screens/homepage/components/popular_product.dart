@@ -9,34 +9,52 @@ class PopularProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CartProvider(),
-      child: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: SectionTitle(
-              title: "Popular Products",
-            ),
+
+
+    return Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: SectionTitle(
+            title: "Popular Products",
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Consumer<CartProvider>(
-              builder: (context, cartProvider, child) {
-                return Wrap(
-                  children: products
-                      .map(
-                        (e) => Container(
-                          padding: const EdgeInsets.all(20),
-                          margin: const EdgeInsets.all(6),
-                          decoration: const BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color.fromRGBO(250, 87, 141, 1.000),
-                                Color.fromRGBO(249, 106, 108, 1.000),
-                              ],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
+        ),
+        SingleChildScrollView(
+          child: Wrap(
+            children: products
+                .map(
+                  (e) => Container(
+                    padding: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(6),
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromRGBO(250, 87, 141, 1.000),
+                          Color.fromRGBO(249, 106, 108, 1.000),
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(40),
+                        topLeft: Radius.circular(40),
+                        bottomLeft: Radius.circular(15),
+                        topRight: Radius.circular(15),
+                      ),
+                    ),
+                    height: 270,
+                    width: MediaQuery.of(context).size.width * 0.42,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            e.name,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+
                             ),
                             borderRadius: BorderRadius.only(
                               bottomRight: Radius.circular(40),
@@ -127,31 +145,31 @@ class PopularProducts extends StatelessWidget {
 
 List<ProductModel> products = [
   ProductModel(
-    'assets/bag_1.png',
+    'assets/sofa.png',
     'Sofa',
     'Beautiful bag',
     2.33,
   ),
   ProductModel(
-    'assets/chairs.jpg',
+    'assets/bed.png',
     'Bed',
     'Cap with beautiful design',
     10,
   ),
   ProductModel(
-    'assets/chairs.jpg',
+    'assets/chair.png',
     'Chair',
     'Cap with beautiful design',
     10,
   ),
   ProductModel(
-    'assets/chairs.jpg',
+    'assets/table.png',
     'Table',
     'Cap with beautiful design',
     10,
   ),
   ProductModel(
-    'assets/chairs.jpg',
+    'assets/couch.png',
     'Couch',
     'Cap with beautiful design',
     10,
