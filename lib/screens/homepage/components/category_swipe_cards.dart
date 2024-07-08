@@ -26,11 +26,10 @@ class _CategorySwipeCardsState extends State<CategorySwipeCards> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: SectionTitle(
             title: "Categories",
-            press: () {},
           ),
         ),
         SingleChildScrollView(

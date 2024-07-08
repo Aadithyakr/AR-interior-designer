@@ -136,16 +136,6 @@ class _LoginFieldsState extends State<LoginFields> {
     emailController = TextEditingController();
   }
 
-  List<ProductModel> products = [
-    ProductModel('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
-    ProductModel(
-      'assets/chairs.jpg',
-      'Chair',
-      'Cap with beautiful design',
-      10,
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
