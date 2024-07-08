@@ -19,9 +19,9 @@ class ProfileMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlassmorphicContainer(
-      margin: const EdgeInsets.all(20),
+      margin: const EdgeInsets.all(10),
       width: MediaQuery.of(context).size.width,
-      height: 60,
+      height: 55,
       borderRadius: 20,
       blur: 20,
       alignment: Alignment.bottomCenter,
@@ -30,8 +30,8 @@ class ProfileMenu extends StatelessWidget {
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
-          const Color.fromARGB(255, 10, 12, 132).withOpacity(0.3),
-          const Color.fromARGB(255, 81, 9, 101).withOpacity(0.2),
+          const Color.fromARGB(255, 10, 12, 132).withOpacity(0.5),
+          const Color.fromARGB(255, 81, 9, 101).withOpacity(0.4),
         ],
         stops: const [
           0.1,

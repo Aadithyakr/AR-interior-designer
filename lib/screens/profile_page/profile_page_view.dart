@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pro_s6/helpers/loading/profile_menu.dart';
 import 'package:pro_s6/helpers/loading/profile_pic.dart';
 import 'package:pro_s6/screens/profile_page/components/legal_about_page.dart';
 import 'package:pro_s6/screens/profile_page/components/settings_page.dart';
+import 'package:pro_s6/services/auth/bloc/bloc.dart';
+import 'package:pro_s6/services/auth/bloc/events.dart';
 
 class ProfilePageView extends StatelessWidget {
   static String routeName = "/profile";
@@ -44,7 +47,8 @@ class ProfilePageView extends StatelessWidget {
           ProfileMenu(
             text: "Log Out",
             icon: Icons.logout,
-            press: () {},
+            press: () =>
+                BlocProvider.of<AuthBloc>(context).add(const AuthEventLogOut()),
           ),
         ],
       ),

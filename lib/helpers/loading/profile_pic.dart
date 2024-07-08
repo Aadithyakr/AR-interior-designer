@@ -8,16 +8,17 @@ class ProfilePic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 115,
-      width: 115,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 40, top: 30),
+      height: 130,
+      width: 130,
       child: Stack(
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
           const CircleAvatar(
-              // backgroundImage: AssetImage("assets/images/Profile Image.png"),
-              ),
+            backgroundImage: AssetImage("assets/profile_pic.jpg"),
+          ),
           Positioned(
             right: -16,
             bottom: 0,
@@ -26,15 +27,18 @@ class ProfilePic extends StatelessWidget {
               width: 46,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
+                  foregroundColor: Colors.grey,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
-                    side: const BorderSide(color: Colors.white),
+                    side: const BorderSide(color: Colors.grey),
                   ),
                   backgroundColor: const Color(0xFFF5F6F9),
                 ),
                 onPressed: () {},
-                child: SvgPicture.asset("assets/icons/Camera Icon.svg"),
+                child: const Icon(
+                  Icons.add_a_photo,
+                  color: Colors.deepPurple,
+                ),
               ),
             ),
           ),
