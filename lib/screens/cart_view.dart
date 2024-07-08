@@ -13,12 +13,14 @@ class CartView extends StatelessWidget {
             height: 50,
             width: 500,
             decoration: BoxDecoration(
-                color: Colors.white, border: Border.all(strokeAlign: 1)),
-            child: Text(
+              color: Colors.white,
+              border: Border.all(strokeAlign: 1),
+            ),
+            child: const Text(
               'Cart',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
             ),
-          )
+          ),
         ],
       ),
     );

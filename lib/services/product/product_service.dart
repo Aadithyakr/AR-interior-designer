@@ -75,7 +75,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                   leading: Image.network(
                     product.images.isNotEmpty ? product.images.first : '',
                   ),
-                  title: Text(product.title),
+                  title: Text(product.name),
                   subtitle: Text('\$${product.price.toString()}'),
                 );
               },
@@ -86,7 +86,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
             'model3D_url',
             id: DateTime.now().millisecondsSinceEpoch, // Example ID generation
             images: ['image_url'],
-            title: 'New Product',
+            name: 'New Product',
             price: 19.99,
             description: 'A new product description',
           );

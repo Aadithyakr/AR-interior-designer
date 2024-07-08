@@ -14,6 +14,14 @@ class CartProvider with ChangeNotifier {
         );
     notifyListeners();
   }
+
+  Future<void> addProductToCart(String userId, Product product) async {
+    await _cartService.addToCart(userId: userId, product: product);
+  }
+
+  Future<void> removeProductFromCart(String userId, Product product) async {
+    await _cartService.removeFromCart(userId: userId, product: product);
+  }
 }
 
 class CartScreen extends StatelessWidget {
@@ -69,7 +77,7 @@ class _CartItemsListState extends State<CartItemsList> {
               leading: Image.network(
                 product.images.isNotEmpty ? product.images.first : '',
               ),
-              title: Text(product.title),
+              title: Text(product.name),
               subtitle: Text('\$${product.price.toString()}'),
             );
           },

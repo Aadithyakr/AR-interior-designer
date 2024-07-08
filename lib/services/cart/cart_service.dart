@@ -62,45 +62,31 @@ class CartService {
 
 class Product {
   final int id;
-  final String title, description, model3D;
-  final List<String> images;
-  final double rating, price;
-  final bool isFavourite;
+  final String name, description;
+  final String image;
 
-  Product(
-    this.model3D, {
+  Product({
     required this.id,
-    required this.images,
-    this.rating = 0.0,
-    this.isFavourite = false,
-    required this.title,
-    required this.price,
+    required this.image,
+    required this.name,
     required this.description,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'title': title,
+      'title': name,
       'description': description,
-      'model3D': model3D,
-      'images': images,
-      'rating': rating,
-      'price': price,
-      'isFavourite': isFavourite,
+      'image': image,
     };
   }
 
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
-      map['model3D'],
       id: map['id'],
-      title: map['title'],
+      name: map['title'],
       description: map['description'],
-      images: List<String>.from(map['images']),
-      rating: map['rating'] ?? 0.0,
-      price: map['price'],
-      isFavourite: map['isFavourite'] ?? false,
+      image: map['image'],
     );
   }
 }

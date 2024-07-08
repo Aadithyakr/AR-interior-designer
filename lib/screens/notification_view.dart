@@ -5,6 +5,19 @@ class NotificationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Notification_view');
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          Icons.notifications_active_outlined,
+          size: 60,
+        ),
+        Text(
+          'You can view your notifications here',
+          style: TextStyle(fontSize: 16),
+        ),
+      ],
+    );
   }
 }
