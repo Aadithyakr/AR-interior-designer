@@ -8,7 +8,7 @@ class ModelView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: ModelViewer(
-        src: 'assets/models/White_couch.glb',
+        src: 'assets/models/table2.glb',
         ar: true,
       ),
     );
