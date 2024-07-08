@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 
 class ModelView extends StatelessWidget {
-  const ModelView({super.key});
+  final String model;
+  const ModelView({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: ModelViewer(
-        src: 'assets/models/tableV1_1glb.glb',
+        src: model,
         ar: true,
       ),
     );

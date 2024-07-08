@@ -64,12 +64,14 @@ class Product {
   final int id;
   final String name, description;
   final String image;
+  final String model;
 
   Product({
     required this.id,
     required this.image,
     required this.name,
     required this.description,
+    required this.model,
   });
 
   Map<String, dynamic> toMap() {
@@ -78,15 +80,16 @@ class Product {
       'title': name,
       'description': description,
       'image': image,
+      'model': model
     };
   }
 
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
-      id: map['id'],
-      name: map['title'],
-      description: map['description'],
-      image: map['image'],
-    );
+        id: map['id'],
+        name: map['title'],
+        description: map['description'],
+        image: map['image'],
+        model: map['model']);
   }
 }

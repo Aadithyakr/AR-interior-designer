@@ -114,50 +114,53 @@ class ProductPageState extends State<ProductPage> {
             child: Row(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width / 2,
+                  width: 350,
                   decoration: const BoxDecoration(
                     border: Border.symmetric(vertical: BorderSide()),
-                    color: Colors.red,
+                    color: Color.fromARGB(188, 54, 101, 244),
                   ),
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   height: 70,
-                  child: const Center(
-                    child: Text(
-                      'Add to cart',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ModelView(
+                            model: widget.product.model,
+                          ),
+                        ),
+                      );
+                    },
+                    child: const Center(
+                      child: Wrap(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              'View',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w900),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(Icons.vrpano_outlined),
+                          )
+                        ],
                       ),
                     ),
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width / 2,
+                  width: 61,
                   decoration: const BoxDecoration(
                     border: Border.symmetric(vertical: BorderSide()),
                     color: Colors.red,
                   ),
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   height: 70,
-                  child: Center(
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const ModelView(),
-                          ),
-                        );
-                      },
-                      child: const Text('Buy Now'),
-                    ),
-                    // child: Text(
-                    //   'Buy now',
-                    //   style: TextStyle(
-                    //     color: Colors.white,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    // ),
-                  ),
+                  child:
+                      const Center(child: Icon(Icons.favorite_border_outlined)),
                 ),
               ],
             ),
