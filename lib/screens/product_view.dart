@@ -142,7 +142,9 @@ class ProductPageState extends State<ProductPage> {
                     child: TextButton(
                       onPressed: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const ModelView()),
+                          MaterialPageRoute(
+                            builder: (context) => const ModelView(),
+                          ),
                         );
                       },
                       child: const Text('Buy Now'),

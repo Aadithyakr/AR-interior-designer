@@ -6,9 +6,11 @@ class ModelView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ModelViewer(
-      src: 'assets/models/White_couch.glb',
-      ar: true,
+    return const Scaffold(
+      body: ModelViewer(
+        src: 'assets/models/White_couch.glb',
+        ar: true,
+      ),
     );
   }
 }
