@@ -8,6 +8,7 @@ import 'package:pro_s6/screens/auth/componenets/alternate_auth_bar.dart';
 import 'package:pro_s6/screens/auth/componenets/background_image.dart';
 import 'package:pro_s6/services/auth/bloc/bloc.dart';
 import 'package:pro_s6/services/auth/bloc/events.dart';
+import 'package:pro_s6/services/auth/service.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -249,19 +250,22 @@ class _LoginFieldsState extends State<LoginFields> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              // onPressed: () => BlocProvider.of<AuthBloc>(context).add(
-              //   AuthEventLogIn(
-              //     emailController.text,
-              //     passwordController.text,
-              //   ),
-              // ),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => const HomeScreen(),
-                  ),
-                );
-              },
+              onPressed: () => BlocProvider.of<AuthBloc>(context).add(
+                AuthEventLogIn(
+                  emailController.text,
+                  passwordController.text,
+                ),
+              ),
+              // onPressed: () {
+              //   Navigator.of(context).push(
+              //     MaterialPageRoute(
+              //       builder: (_) => HomeScreen(
+              //         userId: AuthService.firebase().currentUser!.id,
+              //       ),
+              //     ),
+              //   );
+              // }
+
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Log In'),
@@ -328,16 +332,7 @@ class SignUpButton extends StatelessWidget {
           ),
           InkWell(
             onTap: () => BlocProvider.of<AuthBloc>(context)
-                .add(const AuthEvenShouldRegister())
-            // context.watch<AuthBloc>().add(const AuthEvenShouldRegister())
-            //  {
-            //   Navigator.of(context).push(
-            //     MaterialPageRoute(
-            //       builder: (context) => const SignUpView(),
-            //     ),
-            //   );
-            // }
-            ,
+                .add(const AuthEvenShouldRegister()),
             child: const Text(
               'Sign Up',
               style: TextStyle(

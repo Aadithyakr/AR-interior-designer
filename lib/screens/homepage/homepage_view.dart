@@ -13,7 +13,8 @@ import 'package:pro_s6/screens/search_view.dart';
 import 'package:rive/rive.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.userId});
+  final String userId;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -80,6 +81,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final userId = widget.userId;
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: Transform.translate(
@@ -170,7 +172,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     ),
                   ),
                   const SearchView(),
-                  const CartScreen(),
+                  CartScreen(
+                    userId: userId,
+                  ),
                   const NotificationView(),
                   const ProfilePageView(),
                 ],

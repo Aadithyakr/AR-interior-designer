@@ -34,7 +34,9 @@ class MyApp extends StatelessWidget {
           listener: (context, state) {},
           builder: (context, state) {
             if (state is AuthStateLoggedIn) {
-              return const HomeScreen();
+              return HomeScreen(
+                userId: AuthService.firebase().currentUser!.id,
+              );
             } else if (state is AuthStateLoggedOut) {
               return const LoginView();
             } else if (state is AuthStateNeedsVerification) {
