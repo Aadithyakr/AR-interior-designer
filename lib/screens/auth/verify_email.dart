@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pro_s6/screens/auth/componenets/background_image.dart';
-import 'package:pro_s6/screens/auth/login_view.dart';
 import 'package:pro_s6/services/auth/bloc/bloc.dart';
 import 'package:pro_s6/services/auth/bloc/events.dart';
 
-class VerifyEmailView extends StatefulWidget {
+class VerifyEmailView extends StatelessWidget {
   const VerifyEmailView({super.key});
 
-  @override
-  State<VerifyEmailView> createState() => _SignUpState();
-}
-
-class _SignUpState extends State<VerifyEmailView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,21 +44,15 @@ class _SignUpState extends State<VerifyEmailView> {
                       .copyWith(color: Colors.white70),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const LoginView(),
-                      ),
-                    );
-                  },
+                  onPressed: () => BlocProvider.of<AuthBloc>(context)
+                      .add(const AuthEventLogOut()),
                   child: const Text('Continue to Login'),
                 ),
                 Expanded(
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: TextButton(
-                      onPressed: () => context
-                          .watch<AuthBloc>()
+                      onPressed: () => BlocProvider.of<AuthBloc>(context)
                           .add(const AuthEventSendEmailVerification()),
                       child: const Text(
                         'Resend verification email?',
