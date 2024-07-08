@@ -9,14 +9,13 @@ class PopularProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: SectionTitle(
             title: "Popular Products",
           ),
         ),
         SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
           child: Wrap(
             children: products
                 .map(
@@ -98,31 +97,31 @@ class PopularProducts extends StatelessWidget {
 
 List<ProductModel> products = [
   ProductModel(
-    'assets/bag_1.png',
+    'assets/sofa.png',
     'Sofa',
     'Beautiful bag',
     2.33,
   ),
   ProductModel(
-    'assets/chairs.jpg',
+    'assets/bed.png',
     'Bed',
     'Cap with beautiful design',
     10,
   ),
   ProductModel(
-    'assets/chairs.jpg',
+    'assets/chair.png',
     'Chair',
     'Cap with beautiful design',
     10,
   ),
   ProductModel(
-    'assets/chairs.jpg',
+    'assets/table.png',
     'Table',
     'Cap with beautiful design',
     10,
   ),
   ProductModel(
-    'assets/chairs.jpg',
+    'assets/couch.png',
     'Couch',
     'Cap with beautiful design',
     10,
