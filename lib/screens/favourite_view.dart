@@ -17,11 +17,13 @@ class CartProvider with ChangeNotifier {
 
   Future<void> addProductToCart(String userId, Product product) async {
     await _cartService.addToCart(userId: userId, product: product);
+    fetchCartItems(userId);
     notifyListeners();
   }
 
   Future<void> removeProductFromCart(String userId, Product product) async {
     await _cartService.removeFromCart(userId: userId, product: product);
+    fetchCartItems(userId);
     notifyListeners();
   }
 }
@@ -85,6 +87,12 @@ class _CartItemsListState extends State<CartItemsList> {
               ),
               title: Text(product.name),
               subtitle: Text(product.description),
+              trailing: IconButton(
+                icon: const Icon(Icons.delete),
+                onPressed: () {
+                  cartProvider.removeProductFromCart(widget.userId, product);
+                },
+              ),
             );
           },
         );

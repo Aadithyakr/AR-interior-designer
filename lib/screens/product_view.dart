@@ -113,55 +113,60 @@ class ProductPageState extends State<ProductPage> {
             alignment: Alignment.bottomLeft,
             child: Row(
               children: [
-                Container(
-                  width: 350,
-                  decoration: const BoxDecoration(
-                    border: Border.symmetric(vertical: BorderSide()),
-                    color: Color.fromARGB(188, 54, 101, 244),
-                  ),
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  height: 70,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => ModelView(
-                            model: widget.product.model,
-                          ),
-                        ),
-                      );
-                    },
-                    child: const Center(
-                      child: Wrap(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              'View',
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w900),
+                Expanded(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      border: Border.symmetric(vertical: BorderSide()),
+                      color: Color.fromARGB(188, 54, 101, 244),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    height: 70,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ModelView(
+                              model: widget.product.model,
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(Icons.vrpano_outlined),
-                          )
-                        ],
+                        );
+                      },
+                      child: const Center(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                'View',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(Icons.vrpano_outlined),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-                Container(
-                  width: 61,
-                  decoration: const BoxDecoration(
-                    border: Border.symmetric(vertical: BorderSide()),
-                    color: Colors.red,
-                  ),
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  height: 70,
-                  child:
-                      const Center(child: Icon(Icons.favorite_border_outlined)),
-                ),
+                // Expanded(
+                //   child: Container(
+                //     decoration: const BoxDecoration(
+                //       border: Border.symmetric(vertical: BorderSide()),
+                //       color: Colors.red,
+                //     ),
+                //     height: 70,
+                //     child: const Center(
+                //         child: Icon(Icons.favorite_border_outlined)),
+                //   ),
+                // ),
               ],
             ),
           ),
